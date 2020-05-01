@@ -4,6 +4,7 @@ import opennlp.tools.langdetect.Language;
 import opennlp.tools.langdetect.LanguageDetector;
 import opennlp.tools.langdetect.LanguageDetectorME;
 import opennlp.tools.langdetect.LanguageDetectorModel;
+import opennlp.tools.tokenize.SimpleTokenizer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
@@ -16,6 +17,7 @@ import static org.junit.Assert.*;
 public class TextAnalyzerImplTest {
 
     private InputStream langDetectModel;
+    private String text_ru= "На золотом крыльце сидели: царь, царевич, король, королевич, сапожник, партной, кто ты будешь такой!";
 
     public void setUp() throws Exception {
 
@@ -40,9 +42,20 @@ public class TextAnalyzerImplTest {
     public void checkTextLanguage() throws IOException {
         File file = new File("./src/test/resources/langdetect-183.bin");
         langDetectModel = new FileInputStream(file);
-        String text_eng = "На золотом крыльце сидели: царь, царевич, король, королевич, сапожник, партной, кто ты будешь такой!";
+
         LanguageDetector langDetector = new LanguageDetectorME(new LanguageDetectorModel(langDetectModel));
-        Language bestLanguage = langDetector.predictLanguage(text_eng);
+        Language bestLanguage = langDetector.predictLanguage(text_ru);
         System.out.println(bestLanguage.getLang());
+    }
+
+    @Test
+    public void tokenizeText() {
+        SimpleTokenizer tok = SimpleTokenizer.INSTANCE;
+        String[] t = tok.tokenize("He said,\"that's it.\" *u* Hello, World.");
+        for(String el : t) {
+            System.out.println(el);
+        }
+
+
     }
 }

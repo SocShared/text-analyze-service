@@ -1,5 +1,6 @@
-gradle/wrapper
+gradle/
 build/
 target/
 .idea/
 .gradle/
+gradlew
