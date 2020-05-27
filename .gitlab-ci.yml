@@ -14,12 +14,12 @@ build:
   script: ./gradlew clean build
   artifacts:
     paths:
-      - build/libs/text-analizer-service-1.0.0-SNAPSHOT.jar
+      - build/libs/text-analyzer-service-1.0.0-SNAPSHOT.jar
 
 docker-build:
   stage: docker-build
   script:
-    - docker build -t $CI_DOCKER_LOGIN/text-analizer-service .
+    - docker build -t $CI_DOCKER_LOGIN/text-analyzer-service .
 
 docker-push:
   stage: docker-push
