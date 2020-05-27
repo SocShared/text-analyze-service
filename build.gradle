@@ -15,6 +15,9 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
     mavenLocal()
+    flatDir {
+        dirs 'external_libs'
+    }
 }
 
 dependencies {    //API Description Generator
@@ -33,7 +36,10 @@ dependencies {    //API Description Generator
     //table processor
     implementation  group: 'tech.tablesaw', name: 'tablesaw-core', version: '0.38.0'
     //Text Analyze
-    compile group: 'org.apache.lucene.morphology', name: 'russian', version: '1.5'
+    //compile group: 'org.apache.lucene.morphology', name: 'russian', version: '1.5'
+    implementation name: 'morph-1.5'
+    implementation name: 'russian-1.5'
+
     compile group: 'org.apache.opennlp', name: 'opennlp-tools', version: '1.9.2'
     //Test
     testCompile group: 'junit', name: 'junit', version: '4.12'
