@@ -1,7 +1,6 @@
-package ml.socshared.text_analyze.analyzer;
+package ml.socshared.service.text_analyze.analyzer;
 
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

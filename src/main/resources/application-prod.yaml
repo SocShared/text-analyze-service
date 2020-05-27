@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:text_analyzer?useUnicode=yes&characterEncoding=UTF-8
+    driver-class-name: org.h2.Driver
+    username: sa
+  jpa:
+    hibernate:
+      ddl-auto: update
+  zipkin:
+    base-url: https://zipkin.socshared.ml/
+    service:
+      name: "text-analyzer"
+  main:
+    allow-bean-definition-overriding: true
+
+
+
+  #service:
+  #path-to-stop-words: ./stop_words.txt

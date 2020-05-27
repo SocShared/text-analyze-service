@@ -1,4 +1,4 @@
-package ml.socshared.text_analyze.domain.object;
+package ml.socshared.service.text_analyze.domain.object;
 
 import lombok.Data;
 

@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  text-analyzer:
+    container_name: tech-support
+    image: lexgv/text-analyzer-service
+    ports:
+      - 8886:8886
+    env_file:
+      - .env_text
+
+networks:
+  default:
+    name: socshared

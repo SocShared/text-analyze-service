@@ -21,6 +21,13 @@ dependencies {    //API Description Generator
     implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
     implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.5.RELEASE'
+    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.1.RELEASE'
+    implementation 'org.springframework.cloud:spring-cloud-starter-zipkin:2.2.1.RELEASE'
+    //DB
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.hibernate:hibernate-entitymanager'
+    implementation 'com.h2database:h2'
+    implementation 'org.postgresql:postgresql'
     //Logging
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-logging', version: '2.2.5.RELEASE'
     //table processor
@@ -32,3 +39,14 @@ dependencies {    //API Description Generator
     testCompile group: 'junit', name: 'junit', version: '4.12'
     implementation 'org.junit.jupiter:junit-jupiter'
 }
+
+
+bootJar {
+    baseName = 'socshared-text-analyzer-service'
+    version = '1.0.0-SNAPSHOT'
+}
+
+springBoot {
+    mainClassName = 'ml.socshared.service.text_analyze.Main'
+}
+

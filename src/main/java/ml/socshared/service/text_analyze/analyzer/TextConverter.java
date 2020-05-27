@@ -1,4 +1,4 @@
-package ml.socshared.text_analyze.analyzer;
+package ml.socshared.service.text_analyze.analyzer;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -32,15 +32,14 @@ public class TextConverter {
 
 
     }
-    List<String> convert(String text) {
+    public static List<String> convert(String text) {
         Pattern r = Pattern.compile("[\t\\s\n\r\f\\\\w ,.:\\\"'!\\\\t]");
         String[] words = r.split(text);
         List<String> convertedWords = new ArrayList<>();
         Pattern rusLangSymbol = Pattern.compile("([А-я]+\\-{0,1}[А-я]+)|[А-я]");
         for(String word: words) {
             try {
-
-                convertedWords.add(rusMorphology.getMorphInfo(word.toLowerCase()).get(0).split("\\|")[0]);
+                convertedWords.add(rusMorphology.getMorphInfo(word.toLowerCase()).get(0).split("\\|")[0].trim());
             } catch (Exception exp) {
                 log.info("the text contains unfiltered non-Russian characters: " + exp.getMessage());
             }
@@ -54,7 +53,7 @@ public class TextConverter {
             return Optional.empty();
         }
         int index = 0;
-        while((index+sequence.size()) < array.size()) {
+        while((index+sequence.size()-1) < array.size()) {
             boolean isFound = true;
             for(int j = 0; j < sequence.size(); j++) {
                 if(!array.get(index+j).equals(sequence.get(j))) {

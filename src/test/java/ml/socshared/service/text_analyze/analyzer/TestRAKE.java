@@ -1,4 +1,4 @@
-package ml.socshared.text_analyze.analyzer;
+package ml.socshared.service.text_analyze.analyzer;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

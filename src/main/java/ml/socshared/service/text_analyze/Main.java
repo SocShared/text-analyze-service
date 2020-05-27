@@ -1,4 +1,4 @@
-package ml.socshared.text_analyze;
+package ml.socshared.service.text_analyze;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

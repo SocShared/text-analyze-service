@@ -1,0 +1,39 @@
+image: java:11
+
+stages:
+  - build
+  - docker-build
+  - docker-push
+  - docker-deploy-swarm
+
+before_script:
+  - chmod +x gradlew
+
+build:
+  stage: build
+  script: ./gradlew clean build
+  artifacts:
+    paths:
+      - build/libs/text-analizer-service-1.0.0-SNAPSHOT.jar
+
+docker-build:
+  stage: docker-build
+  script:
+    - docker build -t $CI_DOCKER_LOGIN/text-analizer-service .
+
+docker-push:
+  stage: docker-push
+  script:
+    - docker login -u "$CI_DOCKER_LOGIN" -p "$CI_DOCKER_PASSWORD"
+    - docker push $CI_DOCKER_LOGIN/text-analizer-service
+
+docker-deploy-swarm:
+  stage: docker-deploy-swarm
+  script:
+    - touch .env_text
+    - echo "SPRING_PROFILE=$SPRING_PROFILE" >> .env_text
+    - echo "POSTGRES_USER=$POSTGRES_USER" >> .env_text
+    - echo "POSTGRES_PASS=$POSTGRES_PASS" >> .env_text
+    - echo "POSTGRES_DB=$POSTGRES_DB" >> .env_text
+    - echo "POSTGRES_HOST=$POSTGRES_HOST" >> .env_text
+    - docker stack deploy -c docker-compose.yaml socshared

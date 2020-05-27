@@ -1,0 +1,18 @@
+sspring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}/${POSTGRES_DB:text}
+    driver-class-name: org.postgresql.Driver
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASS}
+  jpa:
+    generate-ddl: true
+
+  zipkin:
+    base-url: http://zipkin:9411/
+    service:
+      name: "text-analyzer"
+  main:
+    allow-bean-definition-overriding: true
+
+#service:
+  #path-to-stop-words: ./stop_words.txt

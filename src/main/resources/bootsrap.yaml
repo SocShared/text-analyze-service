@@ -1,0 +1,15 @@
+server:
+  port: 8886
+  error:
+    whitelabel:
+      enabled: false
+spring:
+  application:
+    name: socshared-mail-sender-service
+  profiles:
+    active: ${SPRING_PROFILE:local}
+
+
+
+  #service:
+  #path-to-stop-words: ./stop_words.txt
