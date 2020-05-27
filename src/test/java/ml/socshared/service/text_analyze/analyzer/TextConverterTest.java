@@ -20,26 +20,19 @@ import static org.junit.Assert.*;
 
 public class TextConverterTest {
 
-    private  LanguageDetectorModel model = null;
-
-    @BeforeEach
-    public void loadLangModel() throws IOException {
-            File file = new File("./src/test/resources/langdetect-183.bin");
-            model  = new LanguageDetectorModel(new FileInputStream(file));
-    }
 
     @Test
     public void findOneWord() throws IOException {
         String text = "Я бы хотел купить, но дорого";
-        TextConverter converter = new TextConverter(model);
+        TextConverter converter = new TextConverter();
         List<String> res = converter.convert(text);
         Assertions.assertEquals(TextConverter.LinearSearchOfSequence(res, Arrays.asList("купить")), Optional.of(3));
     }
     @Test
     public void findTwoWord() throws IOException {
         String text = "Не подскажете, где можно найти телефон Sony";
-        TextConverter converter = new TextConverter(model);
+        TextConverter converter = new TextConverter();
         List<String> res = converter.convert(text);
-        Assertions.assertEquals(TextConverter.LinearSearchOfSequence(res, Arrays.asList("купить")), Optional.of(3));
+        Assertions.assertEquals(TextConverter.LinearSearchOfSequence(res, Arrays.asList("купить")), Optional.empty());
     }
 }

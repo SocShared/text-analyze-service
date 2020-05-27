@@ -17,7 +17,6 @@ import java.util.regex.Pattern;
 @Slf4j
 public class TextConverter {
 
-    private LanguageDetectorME detector;
 
     private static LuceneMorphology rusMorphology = null;
     //private static LuceneMorphology engMorphology = null;
@@ -25,12 +24,12 @@ public class TextConverter {
         try {
             rusMorphology = new RussianLuceneMorphology();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Error loading model of russian morphology", e);
         }
     }
 
-    public TextConverter(LanguageDetectorModel model) {
-        detector = new LanguageDetectorME(model);
+    public TextConverter() {
+
 
     }
     List<String> convert(String text) {
