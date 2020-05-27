@@ -48,7 +48,7 @@ dependencies {    //API Description Generator
 
 
 bootJar {
-    baseName = 'socshared-text-analyzer-service'
+    baseName = 'text-analyzer-service'
     version = '1.0.0-SNAPSHOT'
 }
 
