@@ -25,7 +25,7 @@ docker-push:
   stage: docker-push
   script:
     - docker login -u "$CI_DOCKER_LOGIN" -p "$CI_DOCKER_PASSWORD"
-    - docker push $CI_DOCKER_LOGIN/text-analizer-service
+    - docker push $CI_DOCKER_LOGIN/text-analyzer-service
 
 docker-deploy-swarm:
   stage: docker-deploy-swarm
