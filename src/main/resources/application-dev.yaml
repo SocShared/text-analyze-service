@@ -1,4 +1,4 @@
-sspring:
+spring:
   datasource:
     url: jdbc:postgresql://${POSTGRES_HOST:localhost}/${POSTGRES_DB:text}
     driver-class-name: org.postgresql.Driver
