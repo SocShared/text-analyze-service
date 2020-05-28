@@ -5,7 +5,7 @@ server:
       enabled: false
 spring:
   application:
-    name: socshared-mail-sender-service
+    name: socshared-text-analyzer
   profiles:
     active: ${SPRING_PROFILE:local}
 
