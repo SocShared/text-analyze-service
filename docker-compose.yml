@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   text-analyzer:
-    container_name: tech-support
+    container_name: text-analyzer
     image: lexgv/text-analyzer-service
     ports:
       - 8886:8886
