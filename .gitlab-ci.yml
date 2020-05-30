@@ -36,4 +36,5 @@ docker-deploy-swarm:
     - echo "POSTGRES_PASS=$POSTGRES_PASS" >> .env_text
     - echo "POSTGRES_DB=$POSTGRES_DB" >> .env_text
     - echo "POSTGRES_HOST=$POSTGRES_HOST" >> .env_text
+    - echo "SECRET_JWT_KEY=$SECRET_JWT_KEY" >> .env_text
     - docker stack deploy -c docker-compose.yml socshared
