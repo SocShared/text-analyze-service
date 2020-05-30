@@ -14,6 +14,10 @@ spring:
     allow-bean-definition-overriding: true
 
 
+feign:
+  url:
+    auth: ${AUTH_SERVICE:https://auth.socshared.ml}
+
 
   #service:
   #path-to-stop-words: ./stop_words.txt

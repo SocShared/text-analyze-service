@@ -13,7 +13,9 @@ spring:
       name: "text-analyzer"
   main:
     allow-bean-definition-overriding: true
-
+feign:
+  url:
+    auth: ${AUTH_SERVICE:http://auth-service/}
 
 
 service:
