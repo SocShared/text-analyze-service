@@ -15,7 +15,7 @@ spring:
     allow-bean-definition-overriding: true
 feign:
   url:
-    auth: ${AUTH_SERVICE:https://auth-service:9999/}
+    auth: ${AUTH_SERVICE:http://auth-service:9999/}
 
 
 service:
