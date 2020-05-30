@@ -27,7 +27,7 @@ public class TextAnalyzerController implements TextAnalyzerApi {
 
     @Override
     @PreAuthorize("hasRole('SERVICE')")
-    @GetMapping("/key_words")
+    @GetMapping("/private/key_words")
     public List<KeyWord> extractKeyWords(@RequestBody String text,
                                          @RequestParam(value = "min_len", defaultValue = "2") Integer minLength,
                                          @RequestParam(value = "max_len", defaultValue  = "4") Integer maxLength) {
@@ -37,7 +37,7 @@ public class TextAnalyzerController implements TextAnalyzerApi {
 
     @Override
     @PreAuthorize("hasRole('SERVICE')")
-    @GetMapping("/users/{systemUserId}/target_phrases/apply")
+    @GetMapping("/private/users/{systemUserId}/target_phrases/apply")
     public List<TargetPhrase> extractTargetPhrase(@PathVariable UUID systemUserId,
                                                   @RequestBody String text) {
 
@@ -47,7 +47,7 @@ public class TextAnalyzerController implements TextAnalyzerApi {
 
     @Override
     @PreAuthorize("hasRole('SERVICE')")
-    @PostMapping("/users/{systemUserId}/target_phrases")
+    @PostMapping("/private/users/{systemUserId}/target_phrases")
     public void setTargetPhrase(@PathVariable UUID systemUserId,
                                 @RequestBody List<String> phrases) {
         log.info("request for set target phrases");
@@ -57,7 +57,7 @@ public class TextAnalyzerController implements TextAnalyzerApi {
 
     @Override
     @PreAuthorize("hasRole('SERVICE')")
-    @GetMapping("/users/{systemUserId}/target_phrases")
+    @GetMapping("/private/users/{systemUserId}/target_phrases")
     public List<String> getTargetPhrases(@PathVariable UUID systemUserId) {
         log.info("request for get target phrases");
         return service.getTargetPhrases(systemUserId);
