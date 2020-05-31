@@ -22,3 +22,11 @@ service:
   return_top: 100
   send_sentry_top: 20
   #path-to-stop-words: ./stop_words.txt
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: auditevents, beans, caches, conditions, configprops, health, httptrace, info, loggers, metrics, mappings, shutdown
+

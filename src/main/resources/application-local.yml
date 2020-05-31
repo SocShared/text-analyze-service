@@ -21,3 +21,10 @@ feign:
 
   #service:
   #path-to-stop-words: ./stop_words.txt
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: auditevents, beans, caches, conditions, configprops, health, httptrace, info, loggers, metrics, mappings, shutdown
