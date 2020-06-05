@@ -18,10 +18,7 @@ feign:
     auth: ${AUTH_SERVICE:http://auth-service:9999/}
 
 
-service:
-  return_top: 100
-  send_sentry_top: 20
-  #path-to-stop-words: ./stop_words.txt
+
 
 
 management:

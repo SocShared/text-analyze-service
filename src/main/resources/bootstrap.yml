@@ -14,3 +14,8 @@ jwt:
 
   #service:
   #path-to-stop-words: ./stop_words.txt
+
+service:
+  return_top: 30
+  send_sentry_top: 20
+  #path-to-stop-words: ./stop_words.txt
