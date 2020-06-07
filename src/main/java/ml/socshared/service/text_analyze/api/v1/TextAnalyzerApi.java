@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import ml.socshared.service.text_analyze.domain.object.KeyWord;
 import ml.socshared.service.text_analyze.domain.object.TargetPhrase;
+import ml.socshared.service.text_analyze.domain.request.TextRequest;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,7 +16,7 @@ public interface TextAnalyzerApi {
             @ApiResponse(code = 200, message = "Success extract key words"),
             @ApiResponse(code = 500, message = "Error retrieving keywords")
     })
-    List<KeyWord> extractKeyWords(String text, Integer minLength, Integer maxLength);
+    List<KeyWord> extractKeyWords(TextRequest text, Integer minLength, Integer maxLength);
 
     @ApiOperation(value = "Extracting target phrases (Phrases which user defined)")
     @ApiResponses(value ={

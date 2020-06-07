@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import ml.socshared.service.text_analyze.api.v1.TextAnalyzerApi;
 import ml.socshared.service.text_analyze.domain.object.KeyWord;
 import ml.socshared.service.text_analyze.domain.object.TargetPhrase;
+import ml.socshared.service.text_analyze.domain.request.TextRequest;
 import ml.socshared.service.text_analyze.service.TextAnalyzer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -28,11 +29,11 @@ public class TextAnalyzerController implements TextAnalyzerApi {
     @Override
     @PreAuthorize("hasRole('SERVICE')")
     @GetMapping("/private/key_words")
-    public List<KeyWord> extractKeyWords(@RequestBody String text,
+    public List<KeyWord> extractKeyWords(@RequestBody TextRequest text,
                                          @RequestParam(value = "min_len", defaultValue = "2") Integer minLength,
                                          @RequestParam(value = "max_len", defaultValue  = "4") Integer maxLength) {
         log.info("request for extract key words");
-        return service.extractKeyWords(text, minLength, maxLength);
+        return service.extractKeyWords(text.getText(), minLength, maxLength);
     }
 
     @Override
