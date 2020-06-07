@@ -28,7 +28,7 @@ public class TextAnalyzerController implements TextAnalyzerApi {
 
     @Override
     @PreAuthorize("hasRole('SERVICE')")
-    @GetMapping("/private/key_words")
+    @PostMapping("/private/key_words")
     public List<KeyWord> extractKeyWords(@RequestBody TextRequest text,
                                          @RequestParam(value = "min_len", defaultValue = "2") Integer minLength,
                                          @RequestParam(value = "max_len", defaultValue  = "4") Integer maxLength) {
