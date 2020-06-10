@@ -10,7 +10,7 @@ spring:
   zipkin:
     base-url: http://zipkin:9411/
     service:
-      name: "text-analyzer"
+      name: "socshared-text-analyzer"
   main:
     allow-bean-definition-overriding: true
 feign:
