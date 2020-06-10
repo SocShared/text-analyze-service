@@ -21,17 +21,18 @@ import java.util.*;
 @Service
 public class TextAnalyzerImpl implements TextAnalyzer {
 
-    Rake extractor;
-    List<String> stopWordsList;
-    TargetPhraseRepository repository;
-    SentryService sentry;
+    private final Rake extractor;
+    private final List<String> stopWordsList;
+    private final TargetPhraseRepository repository;
+    private final SentryService sentry;
 
     @Value("${service.return_top}")
     private static final Integer RETURN_TOP_BY_SCORE = 100;
     @Value("${service.send_sentry_top}")
     private static final Integer SEND_SENTRY_TOP_BY_SCORE = 20;
+
     @Autowired
-    TextAnalyzerImpl(Rake extr, @Qualifier("getStopWords") List<String> stop_words, TargetPhraseRepository tpr,
+    public TextAnalyzerImpl(Rake extr, @Qualifier("getStopWords") List<String> stop_words, TargetPhraseRepository tpr,
                      SentryService sentryService) {
         extractor = extr;
         stopWordsList = stop_words;
@@ -70,7 +71,7 @@ public class TextAnalyzerImpl implements TextAnalyzer {
         }
         additional.put("key_words", sentry_res);
         sentryMessage("Extract key words from text", additional,
-                Collections.singletonList(SentryTag.ExtractKeyWords));
+                Collections.singletonList(SentryTag.EXTRACT_KEY_WORDS));
         extractor.resetState();
         return res;
     }
@@ -97,7 +98,7 @@ public class TextAnalyzerImpl implements TextAnalyzer {
         additional.put("text", text);
         additional.put("found_target_phrases", res);
         sentryMessage("extract target phrases from text", additional,
-                Collections.singletonList(SentryTag.SearchTargetPhrases));
+                Collections.singletonList(SentryTag.SEARCH_TARGET_PHRASES));
         return res;
 
     }
@@ -119,7 +120,7 @@ public class TextAnalyzerImpl implements TextAnalyzer {
         additional.put("target_words", targets);
         additional.put("systemUserId", systemUserId);
         sentryMessage("SystemUser add new target phrases in system", additional,
-                Collections.singletonList(SentryTag.AddTargetPhrases));
+                Collections.singletonList(SentryTag.ADD_TARGET_PHRASES));
     }
 
     @Override
@@ -132,13 +133,13 @@ public class TextAnalyzerImpl implements TextAnalyzer {
         HashMap<String, Object> additional = new HashMap<>();
         additional.put("system-user-id", systemUserId);
         sentryMessage("get target phrases", additional,
-                Collections.singletonList(SentryTag.GetTargetPhrases));
+                Collections.singletonList(SentryTag.GET_TARGET_PHRASES));
         return res;
     }
 
     private void sentryMessage(String message,Map<String, Object> additionalData, List<SentryTag> tags) {
         Map<String, String> tm = new HashMap<>();
-        tm.put("service", SentryTag.service_name);
+        tm.put("service", SentryTag.SERVICE_NAME);
         for(SentryTag tag : tags) {
             tm.put(tag.type(), tag.value());
         }

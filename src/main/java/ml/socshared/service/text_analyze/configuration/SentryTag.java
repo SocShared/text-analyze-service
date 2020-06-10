@@ -1,10 +1,10 @@
 package ml.socshared.service.text_analyze.configuration;
 
 public enum SentryTag {
-    ExtractKeyWords("type","extract_key_words"),
-    SearchTargetPhrases("type", "search_target_phrases"),
-    AddTargetPhrases("type", "add_target_phrases"),
-    GetTargetPhrases("type", "get_target_phrases");
+    EXTRACT_KEY_WORDS("type","extract_key_words"),
+    SEARCH_TARGET_PHRASES("type", "search_target_phrases"),
+    ADD_TARGET_PHRASES("type", "add_target_phrases"),
+    GET_TARGET_PHRASES("type", "get_target_phrases");
 
     SentryTag(String t, String tag) {
         type = t;
@@ -18,8 +18,8 @@ public enum SentryTag {
         return sentryTag;
     }
 
-    private String sentryTag;
-    private String type;
-    public static final String service_name = "TAS";
+    private final String sentryTag;
+    private final String type;
+    public static final String SERVICE_NAME = "TAS";
 
 }
