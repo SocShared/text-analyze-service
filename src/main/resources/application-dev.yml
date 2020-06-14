@@ -6,13 +6,13 @@ spring:
     password: ${POSTGRES_PASS}
   jpa:
     generate-ddl: true
-
   zipkin:
     base-url: http://zipkin:9411/
     service:
       name: "socshared-text-analyzer"
   main:
     allow-bean-definition-overriding: true
+
 feign:
   url:
     auth: ${AUTH_SERVICE:http://auth-service:9999/}

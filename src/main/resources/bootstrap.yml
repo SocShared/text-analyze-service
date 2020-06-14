@@ -16,6 +16,7 @@ jwt:
   #path-to-stop-words: ./stop_words.txt
 
 service:
+  id: 58aeed0d-d092-455b-a1a6-dccfea5b89c6
   return_top: 30
   send_sentry_top: 20
   #path-to-stop-words: ./stop_words.txt
