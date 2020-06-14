@@ -69,6 +69,6 @@ bootJar {
 }
 
 springBoot {
-    mainClassName = 'ml.socshared.Main'
+    mainClassName = 'ml.socshared.service.textanalyze.Main'
 }
 
