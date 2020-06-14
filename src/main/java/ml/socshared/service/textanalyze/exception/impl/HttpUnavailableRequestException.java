@@ -9,7 +9,7 @@ public class HttpUnavailableRequestException extends AbstractRestHandleableExcep
         super(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    public HttpUnavailableRequestException(SocsharedErrors errorCode, HttpStatus httpStatus) {
+    public HttpUnavailableRequestException(HttpStatus httpStatus) {
         super(httpStatus);
     }
 }

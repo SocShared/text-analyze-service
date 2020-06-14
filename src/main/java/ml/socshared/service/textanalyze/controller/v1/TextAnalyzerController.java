@@ -7,6 +7,7 @@ import ml.socshared.service.textanalyze.domain.object.KeyWord;
 import ml.socshared.service.textanalyze.domain.object.TargetPhrase;
 import ml.socshared.service.textanalyze.domain.request.TextRequest;
 import ml.socshared.service.textanalyze.service.TextAnalyzer;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,8 @@ import java.util.UUID;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping(value = "/api/v1", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
+        produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @PreAuthorize("isAuthenticated()")
 @RequiredArgsConstructor
 public class TextAnalyzerController implements TextAnalyzerApi {

@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ml.socshared.service.textanalyze.configuration.CustomLocalDateTimeSerializer;
+//import ml.socshared.service.textanalyze.configuration.CustomLocalDateTimeSerializer;
 import ml.socshared.template.exception.SocsharedErrors;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.context.request.ServletWebRequest;
@@ -29,7 +29,7 @@ public class RestApiError {
     private HttpStatus error;
     private String path;
     private String message;
-    @JsonSerialize(using = CustomLocalDateTimeSerializer.class)
+   // @JsonSerialize(using = CustomLocalDateTimeSerializer.class)
     private LocalDateTime timestamp;
 
     public RestApiError(Throwable exc, HttpStatus status, ServletWebRequest webRequest) {

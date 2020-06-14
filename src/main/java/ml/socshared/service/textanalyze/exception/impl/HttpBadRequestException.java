@@ -9,7 +9,7 @@ public class HttpBadRequestException extends AbstractRestHandleableException {
         super(HttpStatus.BAD_REQUEST);
     }
 
-    public HttpBadRequestException(SocsharedErrors errorCode, HttpStatus httpStatus) {
+    public HttpBadRequestException(HttpStatus httpStatus) {
         super(httpStatus);
     }
 

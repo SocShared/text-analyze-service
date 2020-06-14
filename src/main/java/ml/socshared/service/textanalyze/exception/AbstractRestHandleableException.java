@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 public abstract class AbstractRestHandleableException extends RuntimeException implements HttpStatusCodeContainer {
     private static final long serialVersionUID = -3416823984750319182L;
 
-    private HttpStatus httpStatus;
+    private final HttpStatus httpStatus;
 
     public AbstractRestHandleableException(String message, HttpStatus httpStatus) {
         super(message);

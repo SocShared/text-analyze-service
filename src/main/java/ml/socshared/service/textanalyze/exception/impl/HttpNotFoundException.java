@@ -9,7 +9,7 @@ public class HttpNotFoundException extends AbstractRestHandleableException {
         super(HttpStatus.NOT_FOUND);
     }
 
-    public HttpNotFoundException(SocsharedErrors errorCode, HttpStatus httpStatus) {
+    public HttpNotFoundException(HttpStatus httpStatus) {
         super(httpStatus);
     }
 
