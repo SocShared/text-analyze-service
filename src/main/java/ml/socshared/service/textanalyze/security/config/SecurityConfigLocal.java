@@ -7,7 +7,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-import static ml.socshared.service.textanalyze.security.config.Constants.TEST_PROFILE;
+import static ml.socshared.service.textanalyze.configuration.Constants.LOCAL_PROFILE;
+import static ml.socshared.service.textanalyze.configuration.Constants.TEST_PROFILE;
 
 
 @Configuration

@@ -2,7 +2,6 @@ package ml.socshared.service.textanalyze.security.config;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
 import ml.socshared.service.textanalyze.security.jwt.JwtAuthenticationEntryPoint;
 import ml.socshared.service.textanalyze.security.jwt.JwtConfigurer;
 import ml.socshared.service.textanalyze.security.jwt.JwtTokenProvider;
@@ -16,10 +15,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 
+import static ml.socshared.service.textanalyze.configuration.Constants.*;
 
 @Configuration
 @EnableWebSecurity
-@Profile({Constants.DEV_PROFILE, Constants.PROD_PROFILE, Constants.LOCAL_PROFILE})
+@Profile({DEV_PROFILE, PROD_PROFILE, LOCAL_PROFILE})
 @Slf4j
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @RequiredArgsConstructor
