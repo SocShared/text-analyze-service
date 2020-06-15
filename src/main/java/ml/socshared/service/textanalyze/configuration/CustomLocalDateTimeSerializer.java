@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 public class CustomLocalDateTimeSerializer
         extends StdSerializer<LocalDateTime> {
 
-    private static DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
 
     public CustomLocalDateTimeSerializer() {
         this(null);
