@@ -5,7 +5,7 @@ server:
       enabled: false
 spring:
   application:
-    name: socshared-text-analyzer
+    name: text-analyzer
   profiles:
     active: ${SPRING_PROFILE:local}
 
